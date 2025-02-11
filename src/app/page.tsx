@@ -4,15 +4,15 @@ import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
-export interface HomeProps {
-  children?: React.ReactNode
-  searchParams?: Promise<{ page: string }>;
-}
+// export interface HomeProps {
+//   children?: React.ReactNode
+//   searchParams?: Promise<{ page: string }>;
+// }
 
 export default async function Home(props: {
   children: ReactNode;
   searchParams: Promise<{ page: string}>;
-}: HomeProps) {
+}) {
   const currentPage = parseInt(page) ? parseInt(page) : "1";
 
   const pageSize = 6;

@@ -4,11 +4,12 @@ import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
-interface HomeProps {
-  searchParams: { page: "1" };
+interface PageProps {
+  searchParams: page = "1";
+  // searchParams?: any
 }
 
-export default async function Home({ searchParams }: HomeProps ) {
+export default async function Home({ searchParams }: PageProps ) {
   const currentPage = parseInt(page);
 
   const pageSize = 6;

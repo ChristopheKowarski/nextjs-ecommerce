@@ -11,9 +11,9 @@ export interface HomeProps {
 
 export default async function Home(props: {
   children: ReactNode;
-  searchParams: Promise<{ page: string = "1" }>;
+  searchParams: Promise<{ page: string}>;
 }: HomeProps) {
-  const currentPage = parseInt(page);
+  const currentPage = parseInt(page) ? parseInt(page) : "1";
 
   const pageSize = 6;
   const heroItemCount = 1;

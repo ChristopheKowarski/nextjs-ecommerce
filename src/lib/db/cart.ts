@@ -1,4 +1,4 @@
-import { cookies } from "next/dist/client/components/headers";
+import { cookies } from "next/headers";
 import { prisma } from "./prisma";
 import { Cart, CartItem, Prisma } from "@prisma/client";
 import { getServerSession } from "next-auth";

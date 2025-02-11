@@ -11,7 +11,7 @@ export interface HomeProps {
 
 export default async function Home(props: {
   children: ReactNode;
-  searchParams: Promise<{ page = "1" }>;
+  searchParams: Promise<{ page: string = "1" }>;
 }: HomeProps) {
   const currentPage = parseInt(page);
 

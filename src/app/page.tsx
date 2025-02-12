@@ -9,11 +9,11 @@ import Link from "next/link";
 //   // searchParams?: any
 // }
 
-export default async function Home(props: { 
-  searchParams?: Promise<{
-    page?: string;
-  }>;) {
-  const currentPage = parseInt(page);
+type tParams = Promise<{ slug: string[] }>;
+
+export default async function Home(props: { params: tParams }) {
+  const { slug } = await props.params;
+  const currentPage = parseInt(slug[1]);
 
   const pageSize = 6;
   const heroItemCount = 1;

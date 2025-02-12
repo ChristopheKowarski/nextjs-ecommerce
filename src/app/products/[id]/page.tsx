@@ -8,9 +8,9 @@ import AddToCartButton from "./AddToCartButton";
 import { incrementProductQuantity } from "./actions";
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const getProduct = cache(async (id: string) => {

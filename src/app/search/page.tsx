@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { title } from "process";
 
 interface SearchPageProps {
-  searchParams: { Promise<query: string> };
+  searchParams: { Promise<{ query: string }> };
 }
 
 export function generateMetadata({

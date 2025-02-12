@@ -16,7 +16,7 @@ export default function CartEntry({
     setProductQuantity,
  }: CartEntryProps) {
     const [isPending, startTransition] = useTransition();
-    const quantityOptions: JSX.Element[] = [];
+    const quantityOptions: React.JSX.Element[] = [];
     for (let i = 1; i < 100; i++) {
         quantityOptions.push(
             <option value={i} key={i}>

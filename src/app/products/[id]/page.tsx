@@ -7,11 +7,13 @@ import { cache } from "react";
 import AddToCartButton from "./AddToCartButton";
 import { incrementProductQuantity } from "./actions";
 
-interface ProductPageProps {
-  params: Promise<{
-    id: string;
-  }>;
-}
+// interface ProductPageProps {
+//   params: Promise<{
+//     id: string;
+//   }>;
+// }
+
+type Params = Promise<{ id: string }>;
 
 const getProduct = cache(async (id: string) => {
   const product = await prisma.product.findUnique({ where: { id } });
@@ -19,9 +21,11 @@ const getProduct = cache(async (id: string) => {
   return product;
 });
 
-export async function generateMetadata(Promise<{
-  params: { id },
-}>: ProductPageProps): Promise<Metadata> {
+// export async function generateMetadata(Promise<{
+export async function generateMetadata(
+  { params }: { id: Params }
+) {
+  // }>: ProductPageProps): Promise<Metadata> {
   const product = await getProduct(id);
 
   return {
@@ -33,9 +37,9 @@ export async function generateMetadata(Promise<{
   };
 }
 
-export default async function ProductPage({
-  params: { id },
-}: ProductPageProps) {
+export default async function ProductPage(
+  { params} : { id: Params },
+) {
   const product = await getProduct(id);
   return (
     <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
